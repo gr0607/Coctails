@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8424845229D29BCF00A9DD24 /* RandomCoctailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424845129D29BCF00A9DD24 /* RandomCoctailViewController.swift */; };
 		84790A6C29D29A0A00EE92CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6B29D29A0A00EE92CB /* AppDelegate.swift */; };
 		84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */; };
-		84790A7029D29A0A00EE92CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6F29D29A0A00EE92CB /* ViewController.swift */; };
-		84790A7329D29A0A00EE92CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7129D29A0A00EE92CB /* Main.storyboard */; };
 		84790A7529D29A0B00EE92CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7429D29A0B00EE92CB /* Assets.xcassets */; };
 		84790A7829D29A0B00EE92CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8424845129D29BCF00A9DD24 /* RandomCoctailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCoctailViewController.swift; sourceTree = "<group>"; };
 		84790A6829D29A0A00EE92CB /* Coctails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coctails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84790A6B29D29A0A00EE92CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84790A6F29D29A0A00EE92CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84790A7229D29A0A00EE92CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84790A7429D29A0B00EE92CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84790A7729D29A0B00EE92CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84790A7929D29A0B00EE92CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +35,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8424844E29D29B5900A9DD24 /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */,
+				84790A6B29D29A0A00EE92CB /* AppDelegate.swift */,
+				84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */,
+				84790A7429D29A0B00EE92CB /* Assets.xcassets */,
+				84790A7929D29A0B00EE92CB /* Info.plist */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		8424844F29D29B7A00A9DD24 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		8424845029D29BA100A9DD24 /* random coctail */ = {
+			isa = PBXGroup;
+			children = (
+				8424845129D29BCF00A9DD24 /* RandomCoctailViewController.swift */,
+			);
+			path = "random coctail";
+			sourceTree = "<group>";
+		};
 		84790A5F29D29A0A00EE92CB = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +81,9 @@
 		84790A6A29D29A0A00EE92CB /* Coctails */ = {
 			isa = PBXGroup;
 			children = (
-				84790A6B29D29A0A00EE92CB /* AppDelegate.swift */,
-				84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */,
-				84790A6F29D29A0A00EE92CB /* ViewController.swift */,
-				84790A7129D29A0A00EE92CB /* Main.storyboard */,
-				84790A7429D29A0B00EE92CB /* Assets.xcassets */,
-				84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */,
-				84790A7929D29A0B00EE92CB /* Info.plist */,
+				8424845029D29BA100A9DD24 /* random coctail */,
+				8424844F29D29B7A00A9DD24 /* extensions */,
+				8424844E29D29B5900A9DD24 /* supporting files */,
 			);
 			path = Coctails;
 			sourceTree = "<group>";
@@ -126,7 +147,6 @@
 			files = (
 				84790A7829D29A0B00EE92CB /* LaunchScreen.storyboard in Resources */,
 				84790A7529D29A0B00EE92CB /* Assets.xcassets in Resources */,
-				84790A7329D29A0A00EE92CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +157,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84790A7029D29A0A00EE92CB /* ViewController.swift in Sources */,
 				84790A6C29D29A0A00EE92CB /* AppDelegate.swift in Sources */,
 				84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */,
+				8424845229D29BCF00A9DD24 /* RandomCoctailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84790A7129D29A0A00EE92CB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84790A7229D29A0A00EE92CB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Coctails/Info.plist;
+				INFOPLIST_FILE = "Coctails/supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Coctails/Info.plist;
+				INFOPLIST_FILE = "Coctails/supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
