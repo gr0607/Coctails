@@ -13,6 +13,8 @@
 		84790A7529D29A0B00EE92CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7429D29A0B00EE92CB /* Assets.xcassets */; };
 		84790A7829D29A0B00EE92CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */; };
 		84DD058429D4A5AF004914D0 /* Coctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058329D4A5AF004914D0 /* Coctail.swift */; };
+		84DD058729D4A9F1004914D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058629D4A9F1004914D0 /* NetworkManager.swift */; };
+		84DD058A29D4ACF7004914D0 /* CoctailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058929D4ACF7004914D0 /* CoctailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		84790A7729D29A0B00EE92CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84790A7929D29A0B00EE92CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84DD058329D4A5AF004914D0 /* Coctail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coctail.swift; sourceTree = "<group>"; };
+		84DD058629D4A9F1004914D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		84DD058929D4ACF7004914D0 /* CoctailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +41,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8424844E29D29B5900A9DD24 /* supporting files */ = {
+		8424844E29D29B5900A9DD24 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */,
@@ -46,22 +50,22 @@
 				84790A7429D29A0B00EE92CB /* Assets.xcassets */,
 				84790A7929D29A0B00EE92CB /* Info.plist */,
 			);
-			path = "supporting files";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		8424844F29D29B7A00A9DD24 /* extensions */ = {
+		8424844F29D29B7A00A9DD24 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8424845029D29BA100A9DD24 /* random coctail */ = {
+		8424845029D29BA100A9DD24 /* Random coctail */ = {
 			isa = PBXGroup;
 			children = (
 				8424845129D29BCF00A9DD24 /* RandomCoctailViewController.swift */,
 			);
-			path = "random coctail";
+			path = "Random coctail";
 			sourceTree = "<group>";
 		};
 		84790A5F29D29A0A00EE92CB = {
@@ -83,20 +87,38 @@
 		84790A6A29D29A0A00EE92CB /* Coctails */ = {
 			isa = PBXGroup;
 			children = (
-				84DD058229D4A5A3004914D0 /* models */,
-				8424845029D29BA100A9DD24 /* random coctail */,
-				8424844F29D29B7A00A9DD24 /* extensions */,
-				8424844E29D29B5900A9DD24 /* supporting files */,
+				84DD058829D4ACBA004914D0 /* ViewModels */,
+				84DD058529D4A9DC004914D0 /* network manager */,
+				84DD058229D4A5A3004914D0 /* Models */,
+				8424845029D29BA100A9DD24 /* Random coctail */,
+				8424844F29D29B7A00A9DD24 /* Extensions */,
+				8424844E29D29B5900A9DD24 /* Supporting files */,
 			);
 			path = Coctails;
 			sourceTree = "<group>";
 		};
-		84DD058229D4A5A3004914D0 /* models */ = {
+		84DD058229D4A5A3004914D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				84DD058329D4A5AF004914D0 /* Coctail.swift */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84DD058529D4A9DC004914D0 /* network manager */ = {
+			isa = PBXGroup;
+			children = (
+				84DD058629D4A9F1004914D0 /* NetworkManager.swift */,
+			);
+			path = "network manager";
+			sourceTree = "<group>";
+		};
+		84DD058829D4ACBA004914D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				84DD058929D4ACF7004914D0 /* CoctailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +192,9 @@
 			files = (
 				84790A6C29D29A0A00EE92CB /* AppDelegate.swift in Sources */,
 				84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */,
+				84DD058729D4A9F1004914D0 /* NetworkManager.swift in Sources */,
 				8424845229D29BCF00A9DD24 /* RandomCoctailViewController.swift in Sources */,
+				84DD058A29D4ACF7004914D0 /* CoctailViewModel.swift in Sources */,
 				84DD058429D4A5AF004914D0 /* Coctail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

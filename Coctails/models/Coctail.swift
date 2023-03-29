@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-struct Coctail {
+struct Drinks: Decodable{
+    let drinks: [Drink]
+}
+
+struct Drink {
     let id: String
     let name: String
     let category: String
@@ -17,7 +21,7 @@ struct Coctail {
     let instructions: String
     let imageURL: String
 
-    //TODO: - Can Improve
+  //TODO: - Can Improve
     let igridientOne: String?
     let igridientTwo: String?
     let igridientThree: String?
@@ -37,7 +41,7 @@ struct Coctail {
     let measureEight: String?
 }
 
-extension Coctail: Decodable {
+extension Drink: Decodable {
     enum CodingKeys: String, CodingKey {
         case id = "idDrink"
         case name = "strDrink"
