@@ -12,6 +12,7 @@
 		84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */; };
 		84790A7529D29A0B00EE92CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7429D29A0B00EE92CB /* Assets.xcassets */; };
 		84790A7829D29A0B00EE92CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */; };
+		84DD058429D4A5AF004914D0 /* Coctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058329D4A5AF004914D0 /* Coctail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		84790A7429D29A0B00EE92CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84790A7729D29A0B00EE92CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84790A7929D29A0B00EE92CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DD058329D4A5AF004914D0 /* Coctail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coctail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +83,20 @@
 		84790A6A29D29A0A00EE92CB /* Coctails */ = {
 			isa = PBXGroup;
 			children = (
+				84DD058229D4A5A3004914D0 /* models */,
 				8424845029D29BA100A9DD24 /* random coctail */,
 				8424844F29D29B7A00A9DD24 /* extensions */,
 				8424844E29D29B5900A9DD24 /* supporting files */,
 			);
 			path = Coctails;
+			sourceTree = "<group>";
+		};
+		84DD058229D4A5A3004914D0 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				84DD058329D4A5AF004914D0 /* Coctail.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				84790A6C29D29A0A00EE92CB /* AppDelegate.swift in Sources */,
 				84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */,
 				8424845229D29BCF00A9DD24 /* RandomCoctailViewController.swift in Sources */,
+				84DD058429D4A5AF004914D0 /* Coctail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
