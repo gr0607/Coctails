@@ -15,6 +15,6 @@ class RandomCoctailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         coctailViewModel.fetchCoctail()
-        print(coctailViewModel.coctail)
+        print(coctailViewModel.coctail, 44)
     }
 }
