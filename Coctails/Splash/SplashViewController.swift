@@ -9,6 +9,8 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
+    private let coctailViewModel = CoctailViewModel()
+
     private var mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Coctails"
@@ -32,20 +34,35 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        coctailViewModel.fetchCoctail()
         setupUI()
+
+        coctailViewModel.firstDownload = { [weak self] in
+            let vc = RandomCoctailViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .coverVertical
+            vc.coctailViewModel = self?.coctailViewModel
+            self?.present(vc, animated: true)
+        }
     }
     
     func setupUI() {
         view.backgroundColor = .lightBrownBackgroundColor
+        navigationController?.navigationBar.isHidden = true
 
         view.addSubview(mainLabel)
         view.addSubview(loadingLabel)
         view.addSubview(activityIndicator)
 
+        setupConstaints()
+
+        activityIndicator.startAnimating()
+    }
+
+    func setupConstaints() {
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-
 
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -55,7 +72,6 @@ class SplashViewController: UIViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 8)
         ])
-        activityIndicator.startAnimating()
     }
 
 

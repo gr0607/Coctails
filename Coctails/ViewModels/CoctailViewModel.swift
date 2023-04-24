@@ -8,10 +8,12 @@
 import Foundation
 
 class CoctailViewModel {
+
+    var firstDownload: (()->(Void))?
+
     public var coctail: Drink? {
         didSet {
-            print("we have coctail")
-            print(coctail)
+            firstDownload?()
         }
     }
 

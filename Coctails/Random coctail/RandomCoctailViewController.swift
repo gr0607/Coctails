@@ -9,12 +9,12 @@ import UIKit
 
 class RandomCoctailViewController: UIViewController {
 
-    private let coctailViewModel = CoctailViewModel()
+    public var coctailViewModel: CoctailViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        coctailViewModel.fetchCoctail()
-        print(coctailViewModel.coctail, 44)
+
+        print(self.coctailViewModel?.coctail)
     }
 }
