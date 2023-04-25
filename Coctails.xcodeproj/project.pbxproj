@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8424845229D29BCF00A9DD24 /* RandomCoctailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424845129D29BCF00A9DD24 /* RandomCoctailViewController.swift */; };
+		84248DB629F8348100121558 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84248DB529F8348100121558 /* SnapKit */; };
 		843462F529F530D3002E8E5F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843462F429F530D3002E8E5F /* SplashViewController.swift */; };
 		846AB72A29F6E9A90016793D /*  UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AB72929F6E9A90016793D /*  UIColor+Extensions.swift */; };
 		84790A6C29D29A0A00EE92CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6B29D29A0A00EE92CB /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84248DB629F8348100121558 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = Coctails;
+			packageProductDependencies = (
+				84248DB529F8348100121558 /* SnapKit */,
+			);
 			productName = Coctails;
 			productReference = 84790A6829D29A0A00EE92CB /* Coctails.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +183,9 @@
 				Base,
 			);
 			mainGroup = 84790A5F29D29A0A00EE92CB;
+			packageReferences = (
+				84248DB429F8348100121558 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 84790A6929D29A0A00EE92CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,6 +411,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84248DB429F8348100121558 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84248DB529F8348100121558 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84248DB429F8348100121558 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84790A6029D29A0A00EE92CB /* Project object */;
 }
