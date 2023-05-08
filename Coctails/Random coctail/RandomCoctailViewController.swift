@@ -55,6 +55,26 @@ class RandomCoctailViewController: UIViewController {
         return tableView
     }()
 
+    private lazy var likeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "like")!, for: .normal)
+        return button
+    }()
+
+    private lazy var refreshButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "refresh")!, for: .normal)
+        return button
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [likeButton, refreshButton])
+        stackView.backgroundColor = .lightBrownBackgroundColor
+        stackView.distribution = .fillEqually
+        stackView.spacing = 16
+        return stackView
+    }()
+
 
     
     override func viewDidLoad() {
@@ -72,6 +92,7 @@ class RandomCoctailViewController: UIViewController {
         view.addSubview(instructionNameLabel)
         view.addSubview(instructionTextView)
         view.addSubview(tableView)
+        view.addSubview(stackView)
 
         titleLable.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -103,6 +124,14 @@ class RandomCoctailViewController: UIViewController {
             make.left.equalTo(view.snp.centerX).offset(0)
             make.right.equalTo(view.snp.right).offset(-8)
             make.bottom.equalTo(instructionTextView.snp.bottom)
+        }
+
+
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(imageCoctail.snp.bottom).offset(16)
+            make.left.equalTo(view.snp.left).offset(16)
+            make.right.equalTo(view.snp.centerX).offset(-16)
+            make.height.equalTo(60)
         }
 
     }
