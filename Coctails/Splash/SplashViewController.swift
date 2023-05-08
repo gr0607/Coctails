@@ -54,12 +54,13 @@ class SplashViewController: UIViewController {
         view.addSubview(loadingLabel)
         view.addSubview(activityIndicator)
 
-        setupConstaints()
+        setupConstraints()
 
         activityIndicator.startAnimating()
     }
 
-    func setupConstaints() {
+
+    func setupConstraints() {
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +74,5 @@ class SplashViewController: UIViewController {
             activityIndicator.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 8)
         ])
     }
-
 
 }

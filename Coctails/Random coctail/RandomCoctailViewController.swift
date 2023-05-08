@@ -14,7 +14,7 @@ class RandomCoctailViewController: UIViewController {
 
     private lazy var titleLable: UILabel = {
         let label = UILabel()
-        label.text = coctailViewModel?.coctail?.name ?? "Coctail"
+        label.text = coctailViewModel?.coctailName
         label.font = UIFont(name: "Palatino", size: 35)
         label.textColor = .textColor
         return label
@@ -39,16 +39,28 @@ class RandomCoctailViewController: UIViewController {
 
     private lazy var instructionTextView: UITextView = {
         let tv = UITextView()
-        tv.text = coctailViewModel?.coctail?.instructions ?? "??"
+        tv.text = coctailViewModel?.coctailInstructions
         tv.font = UIFont(name: "Palatino", size: 20)
         tv.backgroundColor = .lightBrownBackgroundColor
         tv.textColor = .textColor
         return tv
     }()
 
+
+    private lazy var tableView: UITableView = {
+        var tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .lightBrownBackgroundColor
+        tableView.tableHeaderView?.backgroundColor = .lightBrownBackgroundColor
+        return tableView
+    }()
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
         setupUI()
     }
 
@@ -59,6 +71,7 @@ class RandomCoctailViewController: UIViewController {
         view.addSubview(imageCoctail)
         view.addSubview(instructionNameLabel)
         view.addSubview(instructionTextView)
+        view.addSubview(tableView)
 
         titleLable.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -80,11 +93,50 @@ class RandomCoctailViewController: UIViewController {
 
         instructionTextView.snp.makeConstraints { make in
             make.top.equalTo(instructionNameLabel.snp.bottom).offset(8)
-            make.left.equalTo(view.snp.left).offset(16)
-            make.right.equalTo(view.snp.centerX).offset(-8)
+            make.left.equalTo(view.snp.left).offset(4)
+            make.right.equalTo(view.snp.centerX).offset(-16)
             make.height.equalTo(180)
         }
 
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(titleLable.snp.bottom).offset(16)
+            make.left.equalTo(view.snp.centerX).offset(0)
+            make.right.equalTo(view.snp.right).offset(-8)
+            make.bottom.equalTo(instructionTextView.snp.bottom)
+        }
+
+    }
+}
+
+extension RandomCoctailViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return coctailViewModel?.dataSourceFromViewModel.count ?? 0
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return coctailViewModel!.dataSourceFromViewModel[section].0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let text = coctailViewModel?.dataSourceFromViewModel[indexPath.section].1[indexPath.row] ?? "Oops"
+        cell.backgroundColor = .lightBrownBackgroundColor
+        cell.textLabel?.text = text
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        coctailViewModel?.dataSourceFromViewModel[section].1.count ?? 0
+    }
+}
+
+extension RandomCoctailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        32
+    }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = .lightBrownBackgroundColor
+    }
 }
