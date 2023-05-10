@@ -6,33 +6,56 @@
 //
 
 import Foundation
+import UIKit
 
-class NetworkManager {
-    static let shared = NetworkManager()
+protocol NetworkManager: AnyObject {
+    associatedtype ModelType
+    func decode(_ data: Data) -> ModelType?
+    func execute(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void)
+}
 
-    private init() { }
-
-    func loadData(_ url: URL, withCompletion completion: @escaping (Drink?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let data = data, let value = self?.decodeData(data) else {
-
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
+extension NetworkManager {
+    fileprivate func loadData(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response , error in
+            guard let data = data, let value = self?.decode(data) else {
+                DispatchQueue.main.async { completion(nil) }
                 return
             }
-
-            DispatchQueue.main.async {
-                completion(value)
-            }
+            DispatchQueue.main.async { completion(value) }
         }
         task.resume()
     }
+}
 
+class CoctailManager: NetworkManager {
+    typealias ModelType = Drink
 
-    func decodeData(_ data: Data) -> Drink? {
+    static let shared = CoctailManager()
+
+    private init() { }
+
+    func decode(_ data: Data) -> Drink? {
         let decoder = JSONDecoder()
         let wrappedData = try? decoder.decode(Drinks.self, from: data)
         return wrappedData?.drinks.first
+    }
+
+    func execute(_ url: URL, withCompletion completion: @escaping (Drink?) -> Void) {
+        loadData(url, withCompletion: completion)
+    }
+}
+
+
+class ImageManager: NetworkManager {
+    static let shared = ImageManager()
+
+    private init() { }
+
+    func decode(_ data: Data) -> UIImage? {
+        return UIImage(data: data)
+    }
+
+    func execute(_ url: URL, withCompletion completion: @escaping (UIImage?) -> Void) {
+        loadData(url, withCompletion: completion)
     }
 }

@@ -17,6 +17,8 @@ class CoctailViewModel {
         }
     }
 
+
+
     public var coctailName: String {
         coctail?.name ?? "Coctail"
     }
@@ -31,8 +33,16 @@ class CoctailViewModel {
 
     func fetchCoctail() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/random.php")!
-        NetworkManager.shared.loadData(url) { coctail in
+
+        CoctailManager.shared.execute(url) { coctail in
             self.coctail = coctail
+            let imageURL = URL(string: coctail!.imageURL)!
+
+
+            ImageManager.shared.execute(imageURL) { image in
+                print(image)
+            }
+
         }
     }
 
