@@ -10,6 +10,8 @@ import SnapKit
 
 class RandomCoctailViewController: UIViewController {
 
+    //MARK: - Properties
+
     public var coctailViewModel: CoctailViewModel?
 
     private lazy var titleLable: UILabel = {
@@ -25,7 +27,7 @@ class RandomCoctailViewController: UIViewController {
         imageView.image = coctailViewModel?.coctailImage
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -46,7 +48,6 @@ class RandomCoctailViewController: UIViewController {
         return tv
     }()
 
-
     private lazy var tableView: UITableView = {
         var tableView = UITableView()
         tableView.separatorStyle = .none
@@ -64,6 +65,7 @@ class RandomCoctailViewController: UIViewController {
     private lazy var refreshButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "refresh")!, for: .normal)
+        button.addTarget(self, action: #selector(refreshCoctail), for: .touchUpInside)
         return button
     }()
 
@@ -75,7 +77,7 @@ class RandomCoctailViewController: UIViewController {
         return stackView
     }()
 
-
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +85,8 @@ class RandomCoctailViewController: UIViewController {
         tableView.delegate = self
         setupUI()
     }
+
+    //MARK: - Helpers UI
 
     func setupUI() {
         view.backgroundColor = .lightBrownBackgroundColor
@@ -94,6 +98,10 @@ class RandomCoctailViewController: UIViewController {
         view.addSubview(tableView)
         view.addSubview(stackView)
 
+        makeConstraints()
+    }
+
+    func makeConstraints() {
         titleLable.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(view.snp.top).offset(100)
@@ -133,9 +141,25 @@ class RandomCoctailViewController: UIViewController {
             make.right.equalTo(view.snp.centerX).offset(-16)
             make.height.equalTo(60)
         }
+    }
 
+    //MARK: - Logic
+    @objc func refreshCoctail() {
+        coctailViewModel?.refreshCoctail()
+        coctailViewModel?.updateScreen = { [weak self] in
+            self?.updateUI()
+        }
+    }
+
+    func updateUI() {
+        titleLable.text = coctailViewModel?.coctailName
+        imageCoctail.image = coctailViewModel?.coctailImage
+        instructionTextView.text = coctailViewModel?.coctailInstructions
+        tableView.reloadData()
     }
 }
+
+//MARK: - TableViewDataSource
 
 extension RandomCoctailViewController: UITableViewDataSource {
 
@@ -159,6 +183,8 @@ extension RandomCoctailViewController: UITableViewDataSource {
         coctailViewModel?.dataSourceFromViewModel[section].1.count ?? 0
     }
 }
+
+//MARK: - TableViewDelegeta
 
 extension RandomCoctailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

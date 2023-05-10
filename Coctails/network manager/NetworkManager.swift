@@ -27,10 +27,12 @@ extension NetworkManager {
     }
 }
 
-class CoctailManager: NetworkManager {
+//MARK: - CoctailRequest
+
+class CoctailRequest: NetworkManager {
     typealias ModelType = Drink
 
-    static let shared = CoctailManager()
+    static let shared = CoctailRequest()
 
     private init() { }
 
@@ -45,9 +47,10 @@ class CoctailManager: NetworkManager {
     }
 }
 
+//MARK: - ImageRequest
 
-class ImageManager: NetworkManager {
-    static let shared = ImageManager()
+class ImageRequest: NetworkManager {
+    static let shared = ImageRequest()
 
     private init() { }
 

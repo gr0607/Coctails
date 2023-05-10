@@ -11,12 +11,19 @@ import UIKit
 class CoctailViewModel {
 
     var firstDownload: (()->(Void))?
+    var firstDownloaded = true
+    var updateScreen : (()-> (Void))?
 
     public var coctail: Drink? 
 
     public var coctailImage: UIImage? {
         didSet {
-            firstDownload?()
+        if firstDownloaded {
+                firstDownload?()
+                    firstDownloaded = false
+        } else {
+                updateScreen?()
+            }
         }
     }
 
@@ -35,18 +42,27 @@ class CoctailViewModel {
     func fetchCoctail() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/random.php")!
 
-        CoctailManager.shared.execute(url) { coctail in
+        CoctailRequest.shared.execute(url) { coctail in
             self.coctail = coctail
             let imageURL = URL(string: coctail!.imageURL)!
 
 
-            ImageManager.shared.execute(imageURL) { image in
+            ImageRequest.shared.execute(imageURL) { image in
                 self.coctailImage = image
             }
-
         }
     }
 
+    func refreshCoctail() {
+        print("from view model")
+        fetchCoctail()
+    }
+
+}
+
+//MARK: - Ingridients and Measures
+
+extension CoctailViewModel {
     fileprivate var ingridientsWithoutNil: [String] {
         [coctail?.igridientOne, coctail?.igridientTwo, coctail?.igridientThree, coctail?.igridientFour,
          coctail?.igridientFive, coctail?.igridientSix,coctail?.igridientSeven, coctail?.igridientEight].compactMap {$0}
@@ -69,6 +85,8 @@ class CoctailViewModel {
 
     var mesasures: [String] {
         var result = [String]()
+
+        if measuresWithoutNil.count == 0 { return [String]()}
 
         for i in 1...measuresWithoutNil.count {
             result.append("\(i). \(measuresWithoutNil[i - 1])")

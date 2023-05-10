@@ -9,6 +9,8 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
+    //MARK: - Properties
+
     private let coctailViewModel = CoctailViewModel()
 
     private var mainLabel: UILabel = {
@@ -32,6 +34,8 @@ class SplashViewController: UIViewController {
         return indicator
     }()
 
+    //MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         coctailViewModel.fetchCoctail()
@@ -45,7 +49,10 @@ class SplashViewController: UIViewController {
             self?.present(vc, animated: true)
         }
     }
-    
+
+
+    //MARK: - Helpers
+
     func setupUI() {
         view.backgroundColor = .lightBrownBackgroundColor
         navigationController?.navigationBar.isHidden = true
@@ -55,7 +62,6 @@ class SplashViewController: UIViewController {
         view.addSubview(activityIndicator)
 
         setupConstraints()
-
         activityIndicator.startAnimating()
     }
 
