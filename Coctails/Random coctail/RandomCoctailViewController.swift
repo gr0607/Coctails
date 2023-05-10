@@ -22,7 +22,7 @@ class RandomCoctailViewController: UIViewController {
 
     private lazy var imageCoctail: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "coctail")
+        imageView.image = coctailViewModel?.coctailImage
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
         imageView.contentMode = .scaleToFill

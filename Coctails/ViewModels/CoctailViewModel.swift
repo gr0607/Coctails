@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 class CoctailViewModel {
 
     var firstDownload: (()->(Void))?
 
-    public var coctail: Drink? {
+    public var coctail: Drink? 
+
+    public var coctailImage: UIImage? {
         didSet {
             firstDownload?()
         }
     }
-
-
 
     public var coctailName: String {
         coctail?.name ?? "Coctail"
@@ -40,7 +41,7 @@ class CoctailViewModel {
 
 
             ImageManager.shared.execute(imageURL) { image in
-                print(image)
+                self.coctailImage = image
             }
 
         }
