@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CoctailViewModel {
+class DrinkViewModel {
 
     var firstDownload: (()->(Void))?
     var firstDownloaded = true
@@ -62,7 +62,7 @@ class CoctailViewModel {
 
 //MARK: - Ingridients and Measures
 
-extension CoctailViewModel {
+extension DrinkViewModel {
     fileprivate var ingridientsWithoutNil: [String] {
         [coctail?.igridientOne, coctail?.igridientTwo, coctail?.igridientThree, coctail?.igridientFour,
          coctail?.igridientFive, coctail?.igridientSix,coctail?.igridientSeven, coctail?.igridientEight].compactMap {$0}

@@ -6,13 +6,22 @@
 //
 
 import UIKit
+
+//
+//  RandomCoctailViewController.swift
+//  Coctails
+//
+//  Created by admin on 28.03.2023.
+//
+
+import UIKit
 import SnapKit
 
-class RandomCoctailViewController: UIViewController {
+class DrinkViewController: UIViewController {
 
     //MARK: - Properties
 
-    public var coctailViewModel: CoctailViewModel?
+    public var coctailViewModel: DrinkViewModel?
 
     private lazy var titleLable: UILabel = {
         let label = UILabel()
@@ -78,7 +87,7 @@ class RandomCoctailViewController: UIViewController {
     }()
 
     //MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -161,7 +170,7 @@ class RandomCoctailViewController: UIViewController {
 
 //MARK: - TableViewDataSource
 
-extension RandomCoctailViewController: UITableViewDataSource {
+extension DrinkViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return coctailViewModel?.dataSourceFromViewModel.count ?? 0
@@ -186,7 +195,7 @@ extension RandomCoctailViewController: UITableViewDataSource {
 
 //MARK: - TableViewDelegeta
 
-extension RandomCoctailViewController: UITableViewDelegate {
+extension DrinkViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         32
     }

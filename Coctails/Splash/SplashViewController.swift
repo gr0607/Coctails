@@ -11,7 +11,7 @@ class SplashViewController: UIViewController {
 
     //MARK: - Properties
 
-    private let coctailViewModel = CoctailViewModel()
+    private let coctailViewModel = DrinkViewModel()
 
     private var mainLabel: UILabel = {
         let label = UILabel()
@@ -42,7 +42,7 @@ class SplashViewController: UIViewController {
         setupUI()
 
         coctailViewModel.firstDownload = { [weak self] in
-            let vc = RandomCoctailViewController()
+            let vc = DrinkViewController()
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .coverVertical
             vc.coctailViewModel = self?.coctailViewModel
