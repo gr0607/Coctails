@@ -15,6 +15,7 @@
 		84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84790A6D29D29A0A00EE92CB /* SceneDelegate.swift */; };
 		84790A7529D29A0B00EE92CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7429D29A0B00EE92CB /* Assets.xcassets */; };
 		84790A7829D29A0B00EE92CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84790A7629D29A0B00EE92CB /* LaunchScreen.storyboard */; };
+		849C506E2A1D2AB20036122D /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C506D2A1D2AB20036122D /* DrinkCell.swift */; };
 		84DD058429D4A5AF004914D0 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058329D4A5AF004914D0 /* Drink.swift */; };
 		84DD058729D4A9F1004914D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058629D4A9F1004914D0 /* NetworkManager.swift */; };
 		84DD058A29D4ACF7004914D0 /* DrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD058929D4ACF7004914D0 /* DrinkViewModel.swift */; };
@@ -30,6 +31,7 @@
 		84790A7429D29A0B00EE92CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84790A7729D29A0B00EE92CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84790A7929D29A0B00EE92CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849C506D2A1D2AB20036122D /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		84DD058329D4A5AF004914D0 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		84DD058629D4A9F1004914D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		84DD058929D4ACF7004914D0 /* DrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewModel.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		8424845029D29BA100A9DD24 /* Random coctail */ = {
 			isa = PBXGroup;
 			children = (
+				849C506C2A1D2A9B0036122D /* DrinkCell */,
 				8424845129D29BCF00A9DD24 /* DrinkViewController.swift */,
 			);
 			path = "Random coctail";
@@ -111,6 +114,14 @@
 				8424844E29D29B5900A9DD24 /* Supporting files */,
 			);
 			path = Coctails;
+			sourceTree = "<group>";
+		};
+		849C506C2A1D2A9B0036122D /* DrinkCell */ = {
+			isa = PBXGroup;
+			children = (
+				849C506D2A1D2AB20036122D /* DrinkCell.swift */,
+			);
+			path = DrinkCell;
 			sourceTree = "<group>";
 		};
 		84DD058229D4A5A3004914D0 /* Models */ = {
@@ -216,6 +227,7 @@
 				84790A6E29D29A0A00EE92CB /* SceneDelegate.swift in Sources */,
 				84DD058729D4A9F1004914D0 /* NetworkManager.swift in Sources */,
 				8424845229D29BCF00A9DD24 /* DrinkViewController.swift in Sources */,
+				849C506E2A1D2AB20036122D /* DrinkCell.swift in Sources */,
 				846AB72A29F6E9A90016793D /*  UIColor+Extensions.swift in Sources */,
 				84DD058A29D4ACF7004914D0 /* DrinkViewModel.swift in Sources */,
 				843462F529F530D3002E8E5F /* SplashViewController.swift in Sources */,

@@ -14,6 +14,8 @@ import UIKit
 //  Created by admin on 28.03.2023.
 //
 
+private let reuseDrinkIdentifier = "DrinkCell"
+
 import UIKit
 import SnapKit
 
@@ -86,12 +88,26 @@ class DrinkViewController: UIViewController {
         return stackView
     }()
 
+    private lazy var drinksCollectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layout.itemSize = CGSize(width: view.frame.width, height: 700)
+        layout.scrollDirection = .horizontal
+
+        let cv = UICollectionView(frame: .zero , collectionViewLayout: layout)
+        cv.backgroundColor = .white
+        cv.register(DrinkCell.self, forCellWithReuseIdentifier: reuseDrinkIdentifier)
+        return cv
+    }()
+
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        drinksCollectionView.dataSource = self
+        drinksCollectionView.delegate = self
         setupUI()
     }
 
@@ -106,6 +122,7 @@ class DrinkViewController: UIViewController {
         view.addSubview(instructionTextView)
         view.addSubview(tableView)
         view.addSubview(stackView)
+        view.addSubview(drinksCollectionView)
 
         makeConstraints()
     }
@@ -131,7 +148,7 @@ class DrinkViewController: UIViewController {
 
         instructionTextView.snp.makeConstraints { make in
             make.top.equalTo(instructionNameLabel.snp.bottom).offset(8)
-            make.left.equalTo(view.snp.left).offset(4)
+            make.left.equalTo(view.snp.left).offset(16)
             make.right.equalTo(view.snp.centerX).offset(-16)
             make.height.equalTo(180)
         }
@@ -150,6 +167,14 @@ class DrinkViewController: UIViewController {
             make.right.equalTo(view.snp.centerX).offset(-16)
             make.height.equalTo(60)
         }
+
+        drinksCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(instructionTextView.snp.bottom).offset(30)
+            make.left.equalTo(view.snp.left).offset(16)
+            make.right.equalTo(view.snp.right).offset(-16)
+            make.bottom.equalTo(view.snp.bottom).offset(-60)
+        }
+
     }
 
     //MARK: - Logic
@@ -202,5 +227,26 @@ extension DrinkViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         (view as! UITableViewHeaderFooterView).contentView.backgroundColor = .lightBrownBackgroundColor
+    }
+}
+
+//MARK: - CollectionViewDataSource
+
+extension DrinkViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseDrinkIdentifier, for: indexPath)
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+
+extension DrinkViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 120, height: 120)
     }
 }
